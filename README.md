@@ -7,33 +7,29 @@ A physics simulator and visualizer that demonstrates how launch angles and veloc
 - Multiple visualizations
 
 ## Calculations
-Formulas are explained in ```projectile_motion.py```
+Only kinematics formulas are used. Further comments in ```projectile_motion.py```
 
-## Installation & usage
+## Requirements
 - Python 3.7+
 - NumPy
-- matplotlib
+- Matplotlib
 
-### Clone/download this repository
-```
+## Setup
+```bash
 git clone https://github.com/awu-7/projectile-motion/  
 cd projectile-motion
+pip install numpy matplotlib
+python projectile_motion.py
 ```
-
-### Install dependencies
-``` pip install numpy matplotlib ```
-
-### Run the simulation
-``` python projectile_motion.py ```
 
 ## Outputs
 
-<img width="600" height="350" alt="image" src="https://github.com/user-attachments/assets/2387a101-0b96-4421-ad13-15e003e4eda1" /> <br>
-```projectile_range_heatmap.png```  <br>
+<img width="600" height="350" alt="image" src="https://github.com/user-attachments/assets/92d8b84f-8119-48b9-a178-a75801e27438" /> <br>
+```projectile_range_heatmap.png```  Confirms 45 degrees as optimal launch angle for range <br>
 <img width="600" height="350" alt="image" src="https://github.com/user-attachments/assets/43255f6a-d462-44e4-bed1-ad759d0690e0" /> <br>
-```projectile_height_heatmap.png```  <br>
+```projectile_height_heatmap.png``` Shows 90 degrees achieves max height <br>
 <img width="2139" height="907" alt="image" src="https://github.com/user-attachments/assets/dc2954e6-1156-4f1c-adec-87fb7b956eca" />  
-```projectile_range_heatmap.png```
+```projectile_range_heatmap.png``` 3D side-by-side comparison
 
 
 
