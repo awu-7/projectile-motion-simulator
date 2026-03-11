@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 MAX_VELOCITY = 100
-ANGLES = np.linspace(0, 90, 100)        # set a range of angles between 0 and 90 deg
-VELOCITIES = np.linspace(1, 100, 100)   # set a range of reasonable velocities in m/s
+ANGLES = np.linspace(0, 90, 5000)        # set a range of angles between 0 and 90 deg
+VELOCITIES = np.linspace(1, 100, 5000)   # set a range of reasonable velocities in m/s
 ranges = np.zeros((len(VELOCITIES), len(ANGLES)))       # create ranges for plot based on entries in each dimension
 angles_grid, velocities_grid = np.meshgrid(ANGLES, VELOCITIES)
 
