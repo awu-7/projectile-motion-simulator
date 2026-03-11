@@ -1,5 +1,5 @@
 # Projectile Motion Simulator
-A physics simulator and visualizer that demonstrates how launch angles and velocities affect a projectile's trajectory. It can simulate millions of parameter combinations to visualize the optimal conditions for max distance and understand trade-offs between range and height. 
+A physics simulator and visualizer that demonstrates how launch angles and velocities affect a projectile's trajectory. It can simulate millions of parameter combinations to visualize the optimal conditions for max distance and trade-offs between range and height. 
 
 ## Features
 - Vectorized computation
