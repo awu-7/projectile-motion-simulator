@@ -1,14 +1,6 @@
 # Projectile Motion Simulator
 A physics simulator and visualizer that demonstrates how launch angles and velocities affect a projectile's trajectory. It can simulate millions of parameter combinations to visualize the optimal conditions for max distance and trade-offs between range and height. 
 
-## Features
-- Vectorized computation
-- Customizable parameters
-- Multiple visualizations
-
-## Calculations
-Only kinematics formulas are used. Further comments in ```projectile_motion.py```
-
 ## Requirements
 - Python 3.7+
 - NumPy
@@ -21,6 +13,9 @@ cd projectile-motion
 pip install numpy matplotlib
 python projectile_motion.py
 ```
+
+## Calculations
+Only kinematics formulas are used. Further comments in ```projectile_motion.py```
 
 ## Outputs
 
