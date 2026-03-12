@@ -1,41 +1,47 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-MAX_VELOCITY = 100
-ANGLES = np.linspace(0, 90, 5000)        # set a range of angles between 0 and 90 deg
-VELOCITIES = np.linspace(1, 100, 5000)   # set a range of reasonable velocities in m/s
-ranges = np.zeros((len(VELOCITIES), len(ANGLES)))       # create ranges for plot based on entries in each dimension
+# set parameters
+NUM_THETA = 200     # number of angles to test
+NUM_V = 200      # number of velocities to test
+MAX_VELOCITY = 100   # highest velocity to test (m/s)
+
+ANGLES = np.linspace(1, 89, NUM_THETA)                # test angles between 1 and 89 deg, since 0 and 90 are edge cases
+VELOCITIES = np.linspace(1, MAX_VELOCITY, NUM_V)      # test velocities between 1 m/s and MAX_VELOCITY
+ranges = np.zeros((len(VELOCITIES), len(ANGLES)))     # create ranges for plot based on number of entries in each array
 angles_grid, velocities_grid = np.meshgrid(ANGLES, VELOCITIES)
 
 GRAVITY = 9.8   # gravity on earth
 
-def projectile_motion(initial_velocity, angle_deg, gravity = GRAVITY):
-    # convert degrees to radians since NumPy trig functions use radians
-    angle_rad = np.radians(angle_deg)
+# convert degrees to radians since NumPy trig functions use radians
+angle_rad = np.radians(angles_grid)
 
-    # calculate initial velocity components
-    v_x = velocities_grid * np.cos(angle_rad)
-    v_y = velocities_grid * np.sin(angle_rad)
+# calculate initial velocity components
+# note: v0x, v0y used in place of v_x, v_y in explanations to clarify initial vs final velocities
+v_x = velocities_grid * np.cos(angle_rad)
+v_y = velocities_grid * np.sin(angle_rad)
 
-    # calculate total flight time using kinematics
-    # y = v0*t + 0.5*a*t^2
-    # since y = 0, we can rearrange to get the following equation:
-    flight_time = 2 * v_y / GRAVITY
+# calculate total flight time using kinematics
+# start with equation: y = v0y*t + 0.5*ay*t^2
+# when y = 0: 0 = v0y*t - 0.5*g*t^2
+# factor out t: 0 = t(v0y - 0.5*g*t) => 0 = v0y - 0.5*g*t
+flight_time = 2 * v_y / GRAVITY
 
-    # calculate range using kinematics
-    # x = v0*t + 0.5*a*t^2
-    # after plugging in a = 0, we get the following equation:
-    range_value = v_x * flight_time
-    height_value = (v_y ** 2) / (2 * gravity)
-    return range_value, height_value
+# calculate range using kinematics
+# start with equation: x = v0x*t + 0.5*a*t^2
+# ax = 0 => x = v0x*t
+ranges = v_x * flight_time
 
-ranges, heights = projectile_motion(VELOCITIES,ANGLES,GRAVITY)
+# calculate max height using kinematics
+# vy^2 = v0y^2 + 2*ay*y
+# at max height, final velocity is 0 => 0 = v0y^2 + 2*ay*y
+heights = (v_y ** 2) / (2 * GRAVITY)  # max height varies squarely with initial velocity
 
-# Heat map formatting
-# range heatmap
+# Plot
+# Range heatmap
 plt.figure(figsize=(12, 7))
 plt.imshow(ranges, aspect='auto', origin='lower',
-           extent=[0, 90, 0, MAX_VELOCITY], cmap='terrain')
+           extent=[1, 90, 1, MAX_VELOCITY], cmap='terrain')
 plt.colorbar(label='Range (m)')
 plt.xlabel('Launch Angle (deg)')
 plt.ylabel('Initial Velocity (m/s)')
