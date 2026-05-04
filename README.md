@@ -29,7 +29,7 @@ $v^2 = v_0^2 +2a\Delta x$
 
 **Range**  
 $x = v_x t$
-Note: this is also equal to $\frac{v_0^2 \sin(2\theta)}{g}$. Try to derive it yourself!  
+Note: this is also equal to $\frac{v_0^2 \sin(2\theta)}{g}$.  
 
 **Height**  
 $y = \frac{v_y^2}{2g}$ 
